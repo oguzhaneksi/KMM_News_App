@@ -1,0 +1,29 @@
+CREATE TABLE ArticleEntity (
+    url TEXT NOT NULL PRIMARY KEY,
+    author TEXT,
+    content TEXT,
+    description TEXT,
+    publishedAt TEXT NOT NULL,
+    title TEXT NOT NULL,
+    url_to_image TEXT
+);
+
+getAllArticles:
+SELECT * FROM ArticleEntity;
+
+getArticleByUrl:
+SELECT * FROM ArticleEntity WHERE url = ?;
+
+insertArticle:
+INSERT OR REPLACE INTO ArticleEntity(
+    author,
+    content,
+    description,
+    publishedAt,
+    title,
+    url,
+    url_to_image
+) VALUES (?, ?, ?, ?, ?, ?, ?);
+
+deleteArticleByUrl:
+DELETE FROM ArticleEntity WHERE url = ?;
